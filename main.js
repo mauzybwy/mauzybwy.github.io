@@ -1,8 +1,8 @@
 var shape
 var svg = document.getElementById('svg');
-var colorsArr = ['none', 'green', 'red', 'yellow', 'blue', 'black', 'pink', 'grey', 'purple'];
-//colorsArr = ['black','white'];
-colorsArr = ['none', 'teal', 'yellow', 'pink', 'green', 'darkslategray', 'tomato'];
+var colorsArr = ['none', 'teal', 'yellow', 'pink', 'green', 'darkslategray', 'tomato'];
+// colorsArr = ['none', 'green', 'red', 'yellow', 'blue', 'black', 'pink', 'grey', 'purple'];
+// colorsArr = ['black','white'];
 var color;
 var horizonY = 100;
 
@@ -40,4 +40,29 @@ $(document).mousemove(function(e) {
     shape.setAttribute("fill", colorsArr[color]);
 
     svg.appendChild(shape);
+});
+
+$(document).ready(function(e) {
+    var i
+    for (i = 1; i < 11; i++)
+    {
+	var w = $(window).width();
+	var h = $(window).height();
+
+	shape = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+
+	var width = Math.floor(Math.random() * (10000/i) + 100);
+	var height = Math.floor(Math.random() * (10000/i) + 100);
+	var x = Math.floor(Math.random() * w);
+	var y = Math.floor(Math.random() * h);
+	color = Math.floor(Math.random() * colorsArr.length);
+
+	shape.setAttribute("y", "" + y - (height / 2) + "");
+	shape.setAttribute("x", "" + x - (width / 2) + "");
+	shape.setAttribute("width", "" + width + "");
+	shape.setAttribute("height", "" + height + "");
+	shape.setAttribute("fill", colorsArr[color]);
+
+	svg.appendChild(shape);
+    }
 });
