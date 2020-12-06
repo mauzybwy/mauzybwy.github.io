@@ -65,4 +65,6 @@ $(document).ready(function(e) {
 
 	svg.appendChild(shape);
     }
+
+    $("#cover").hide();
 });
